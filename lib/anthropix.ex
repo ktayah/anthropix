@@ -370,6 +370,21 @@ defmodule Anthropix do
       type: :float,
       doc: "Amount of randomness injected into the response."
     ],
+    output_config: [
+      type: :map,
+      keys: [
+        effort: [required: false, type: :string],
+        format: [
+          required: true,
+          type: :map,
+          keys: [
+            type: [required: true, type: :string],
+            schema: [required: true, type: @permissive_map]
+          ]
+        ]
+      ],
+      doc: "Configuration for structured output."
+    ]
   ]
 
   @doc """
