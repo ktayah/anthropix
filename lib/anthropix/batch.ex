@@ -240,7 +240,7 @@ defmodule Anthropix.Batch do
          true <- String.match?(header, ~r/\.jsonl/)
     do
       results = body
-      |> String.split("\n")
+      |> String.split("\n", trim: true)
       |> Enum.map(&Jason.decode!/1)
       {:ok, results}
     else
